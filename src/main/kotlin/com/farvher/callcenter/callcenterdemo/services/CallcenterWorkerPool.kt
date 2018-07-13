@@ -9,4 +9,6 @@ interface CallcenterWorkerPool {
     fun getCallcenterWorker(): CallcenterWorker?
 
     fun setAvailable(worker : CallcenterWorker) : Unit
+
+    fun getAvaliableWorkers() : Number;
 }

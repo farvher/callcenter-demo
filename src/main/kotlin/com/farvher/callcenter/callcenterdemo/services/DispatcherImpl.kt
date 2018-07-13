@@ -16,8 +16,10 @@ class DispatcherImpl : Dispatcher {
     @Async
     override fun dispatchCall(callNumber: Number) {
         println("finding worker ...")
+
         val worker = callcenterWorkerPool.getCallcenterWorker()
-        worker?.takeCall();
+        println("Availiable ${callcenterWorkerPool.getAvaliableWorkers()} workers")
+        worker?.takeCall()
         if(worker!=null){
             val random = (5000L..10000L).shuffled().last()
             Thread.sleep(random);

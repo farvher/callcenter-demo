@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct
 class CallcenterWorkerPoolImpl : CallcenterWorkerPool {
 
 
+
     private val workers = arrayListOf<CallcenterWorker>()
 
     private var initialized = false;
@@ -71,9 +72,13 @@ class CallcenterWorkerPoolImpl : CallcenterWorkerPool {
         return null
     }
 
+    override fun getAvaliableWorkers(): Number {
+       return this.workers.filter { t -> !t.itsBusy() }.size
+    }
+
     override fun setAvailable(worker: CallcenterWorker) {
         if (this.workers.contains(worker)) {
-            this.workers.filter { it == worker }.single().setItsBusy(false)
+            this.workers.filter { it === worker }.single().setItsBusy(false)
         }
     }
 

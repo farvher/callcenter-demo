@@ -25,7 +25,7 @@ class CallCenterTests {
             println("Incomming call .. #${i}")
             dispatcher.dispatchCall(i);
 
-            Thread.sleep(5000);
+            Thread.sleep(500);
 
         }
     }
